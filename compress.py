@@ -1,5 +1,5 @@
 import PyPDF2
-with open('input_path', 'rb') as in_file:
+with open(input_path, 'rb') as in_file:
         reader = PyPDF2.PdfFileReader(in_file)
         writer = PyPDF2.PdfFileWriter()
         for page_num in range(reader.getNumPages()):
@@ -13,7 +13,7 @@ with open('input_path', 'rb') as in_file:
                         PyPDF2.generic.NameObject("/ColorTransform"): PyPDF2.generic.createStringObject("/0")
                     })
             writer.addPage(page)
-        with open('output_path', 'wb') as out_file:
+        with open(output_path, 'wb') as out_file:
             writer.write(out_file)
 input_path = "input.pdf"  
 output_path = "output_compressed.pdf"  
